@@ -9,24 +9,21 @@
 {% block content %}
 <div class="box">
     <div class="content">
-        <p class="title">Decrypting e2ee message from <a href="/user/{{sender_id}}">{{sender_name}}</a>.</p>
+        <p class="title">解密加密信息从<a href="/user/{{sender_id}}">{{sender_name}}</a>中</p>
         <article class="message is-info">
             <div class="message-header">
                 <p>Info</p>
             </div>
             <div class="message-body">
-                <p>Your keys and data are kept confidential by running cryptography operations in your browser using
-                    <a href="https://www.w3.org/TR/WebCryptoAPI/" target="Web Crypto API">Web Crypto API</a> and
-                    JavaScript is left unminified so you can verify page source.
-                </p>
-                <p>The code is copied from: <a href="https://github.com/galehouse5/rsa-webcrypto-tool">https://github.com/galehouse5/rsa-webcrypto-tool</a></p>
+                                <p>您的密钥和数据通过在浏览器中使用<a href="https://www.w3.org/TR/WebCryptoAPI/" target="Web Crypto API">Web Crypto API</a> 进行加密操作而保持机密，同时JavaScript未被压缩，以便您可以验证页面源代码。</p>
+                <p>代码来源于：<a href="https://github.com/galehouse5/rsa-webcrypto-tool">https://github.com/galehouse5/rsa-webcrypto-tool</a></p>
             </div>
         </article>        
         <div class="box">
             <fieldset>
                 <div class="field">
                     <div class="is-normal">
-                        <label class="label" for="encrypted-text">Encrypted Message</label>
+                        <label class="label" for="encrypted-text">加密信息</label>
                     </div>
                     <div class="field-body">
                         <div class="field">
@@ -39,7 +36,7 @@
 
                 <div class="field">
                     <div class="is-normal">
-                        <label class="label" for="private-key">RSA Private Key</label>
+                        <label class="label" for="private-key">RSA私钥</label>
                     </div>
                     <div class="field-body">
                         <div class="field">
@@ -53,14 +50,14 @@
         </div>
 
         <div class="divider"></div>
-        <button id="button" class="button is-link">Decrypt Message</button>
+        <button id="button" class="button is-link">解密信息</button>
         <div id="message"></div>
 
         <div class="box">
             <fieldset>
                 <div class="field">
                     <div class="is-normal">
-                        <label class="label" for="decrypted-text">Decrypted Message</label>
+                        <label class="label" for="decrypted-text">已解密的信息</label>
                     </div>
                     <div class="field-body">
                         <div class="field">
@@ -74,7 +71,7 @@
         </div>
 
         <div class="divider"></div>
-        <a href="/message/{{sender_id}}" target="_blank"><button id="button" class="button is-link">Reply</button></a>
+        <a href="/message/{{sender_id}}" target="_blank"><button id="button" class="button is-link">回复</button></a>
     </div>
 </div>
 
@@ -105,7 +102,7 @@
             };
 
             var process = function () {
-                message.innerText = "Processing...";
+                message.innerText = "处理中……";
                 button.disabled = true;
 
                 if (privateKey.value.trim() === "")

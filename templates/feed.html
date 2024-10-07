@@ -10,16 +10,16 @@
                 {% else %}
                     {% match filter.as_deref() %}{% when Some with ("star") %}
                     <li><a href="/feed/{{uid}}">All</a></li>
-                    <li class="is-active"><a href="/feed/{{uid}}?filter=star">Star</a></li>
-                    <li><a href="/feed/{{uid}}?filter=unread">Unread</a></li>
+                    <li class="is-active"><a href="/feed/{{uid}}?filter=star">加星标</a></li>
+                    <li><a href="/feed/{{uid}}?filter=unread">未读</a></li>
                     {% when Some with ("unread") %}
-                    <li><a href="/feed/{{uid}}">All</a></li>
-                    <li><a href="/feed/{{uid}}?filter=star">Star</a></li>
-                    <li class="is-active"><a href="/feed/{{uid}}?filter=unread">Unread</a></li>
+                    <li><a href="/feed/{{uid}}">全部</a></li>
+                    <li><a href="/feed/{{uid}}?filter=star">星标</a></li>
+                    <li class="is-active"><a href="/feed/{{uid}}?filter=unread">未读</a></li>
                     {% else %}
-                    <li class="is-active"><a href="/feed/{{uid}}">All</a></li>
-                    <li><a href="/feed/{{uid}}?filter=star">Star</a></li>
-                    <li><a href="/feed/{{uid}}?filter=unread">Unread</a></li>
+                    <li class="is-active"><a href="/feed/{{uid}}">全部</a></li>
+                    <li><a href="/feed/{{uid}}?filter=star">星标</a></li>
+                    <li><a href="/feed/{{uid}}?filter=unread">未读</a></li>
                     {% endmatch %}
                 {% endmatch %}
             </ul>
@@ -29,9 +29,9 @@
         {% if active_feed != 0 %}
             <a href="/feed/subscribe/{{uid}}/{{active_feed}}">
                 {% if username.is_some() %}
-                <button class="button is-success is-small is-rounded">Subscribe</button>
+                <button class="button is-success is-small is-rounded">关注</button>
                 {% else %}
-                <button class="button is-small is-rounded is-danger">Unsubscribe</button>
+                <button class="button is-small is-rounded is-danger">取消关注</button>
                 {% endif %}
             </a>
         {% else %}
@@ -67,22 +67,22 @@
 
 <nav class="pagination">
     {% if anchor < n %}
-        <a class="pagination-previous" disabled>Prev</a>
+        <a class="pagination-previous" disabled>上一页</a>
     {% else %}
         {% match filter %} {% when Some with (val) %}
-            <a class="pagination-previous" href="/feed/{{uid}}?anchor={{anchor - n}}&is_desc={{is_desc}}&filter={{val}}&active_folder={{active_folder}}&active_feed={{active_feed}}">Prev</a>
+            <a class="pagination-previous" href="/feed/{{uid}}?anchor={{anchor - n}}&is_desc={{is_desc}}&filter={{val}}&active_folder={{active_folder}}&active_feed={{active_feed}}">上一页</a>
         {% else %}
-            <a class="pagination-previous" href="/feed/{{uid}}?anchor={{anchor - n}}&is_desc={{is_desc}}&active_folder={{active_folder}}&active_feed={{active_feed}}">Prev</a>
+            <a class="pagination-previous" href="/feed/{{uid}}?anchor={{anchor - n}}&is_desc={{is_desc}}&active_folder={{active_folder}}&active_feed={{active_feed}}">上一页</a>
         {% endmatch %}
     {% endif %}
 
     {% if items.len() < n %}
-        <a class="pagination-next" disabled>Next</a>
+        <a class="pagination-next" disabled>下一页</a>
     {% else %}
         {% match filter %} {% when Some with (val) %}
-            <a class="pagination-next" href="/feed/{{uid}}?anchor={{anchor + n}}&is_desc={{is_desc}}&filter={{val}}&active_folder={{active_folder}}&active_feed={{active_feed}}">Next</a>
+            <a class="pagination-next" href="/feed/{{uid}}?anchor={{anchor + n}}&is_desc={{is_desc}}&filter={{val}}&active_folder={{active_folder}}&active_feed={{active_feed}}">下一页</a>
         {% else %}
-            <a class="pagination-next" href="/feed/{{uid}}?anchor={{anchor + n}}&is_desc={{is_desc}}&active_folder={{active_folder}}&active_feed={{active_feed}}">Next</a>
+            <a class="pagination-next" href="/feed/{{uid}}?anchor={{anchor + n}}&is_desc={{is_desc}}&active_folder={{active_folder}}&active_feed={{active_feed}}">下一页</a>
         {% endmatch %}
     {% endif %}
 </nav>

@@ -11,17 +11,17 @@
         {% for img in imgs %}
         <div id="delete_{{img.0}}" class="overlay">
             <div class="popup content">
-                <h3>Delete permanently?</h3>
+                <h3>真的要删除吗？</h3>
                 <a class="close" href="#">&times;</a>
-                <p>Are you sure you want to delete this image?</p>
-                <p><a href="/image/delete/{{uid}}/{{img.0}}" class="button is-danger">Delete</a></p>
+                <p>你确定要删除这张图片吗？</p>
+                <p><a href="/image/delete/{{uid}}/{{img.0}}" class="button is-danger">删除</a></p>
                 <img src="/static/upload/{{img.1}}">
             </div>
         </div>
         <div class="column is-one-third">
             <figure>
                 <a href="/static/upload/{{img.1}}" target="_blank"><img src="/static/upload/{{img.1}}"></a>
-                <a href="#delete_{{img.0}}" class="delete">Delete</a>
+                <a href="#delete_{{img.0}}" class="delete">删除</a>
                 <figcaption>
                     <code>![](/static/upload/{{img.1}})</code>
                 </figcaption>
@@ -35,15 +35,15 @@
 
 <nav class="pagination">
     {% if anchor < n %}
-        <a class="pagination-previous" disabled>Prev</a>
+        <a class="pagination-previous" disabled>上一页</a>
     {% else %}
-        <a class="pagination-previous" href="/gallery/{{uid}}?anchor={{anchor - n}}&is_desc={{is_desc}}">Prev</a>
+        <a class="pagination-previous" href="/gallery/{{uid}}?anchor={{anchor - n}}&is_desc={{is_desc}}">上一页</a>
     {% endif %}
 
     {% if imgs.len() < n %}
-        <a class="pagination-next" disabled >Next</a>
+        <a class="pagination-next" disabled >下一页</a>
     {% else %}
-        <a class="pagination-next" href="/gallery/{{uid}}?anchor={{anchor + n}}&is_desc={{is_desc}}">Next</a>
+        <a class="pagination-next" href="/gallery/{{uid}}?anchor={{anchor + n}}&is_desc={{is_desc}}">下一页</a>
     {% endif %}
 </nav>
 {% endblock %}

@@ -5,7 +5,7 @@
     <fieldset>
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label" for="site_name">Sitename</label>
+                <label class="label" for="site_name">站点名称</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -18,7 +18,7 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label" for="domain">Domain</label>
+                <label class="label" for="domain">域名</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -31,7 +31,7 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label" for="description">Description</label>
+                <label class="label" for="description">描述</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -44,7 +44,7 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label" for="read_only">Read only</label>
+                <label class="label" for="read_only">只读</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -71,7 +71,7 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label" for="title_max_length">Title max length</label>
+                <label class="label" for="title_max_length">标题最多可以写的字数</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -84,7 +84,7 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label" for="article_max_length">Article max length</label>
+                <label class="label" for="article_max_length">文章最多可以写的字数</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -97,7 +97,7 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label" for="comment_max_length">Comment max length</label>
+                <label class="label" for="comment_max_length">评论最多可以写的字数</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -110,7 +110,7 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label" for="solo_interval">Solo interval</label>
+                <label class="label" for="solo_interval">Solo的间隔</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -123,7 +123,7 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label" for="post_interval">Post interval</label>
+                <label class="label" for="post_interval">发帖间隔</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -136,7 +136,7 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label" for="comment_interval">Comment interval</label>
+                <label class="label" for="comment_interval">评论间隔</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -149,7 +149,7 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label" for="per_page">Per page</label>
+                <label class="label" for="per_page">每页</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -162,15 +162,15 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label" for="captcha_difficulty">Captcha difficulty</label>
+                <label class="label" for="captcha_difficulty">验证码难度</label>
             </div>
             <div class="field-body">
                 <div class="field">
-                    <p class="help">About <a href="https://docs.rs/captcha/0.0.9/captcha/fn.by_name.html" target="_blank">captcha</a></p>
+                    <p class="help">关于 <a href="https://docs.rs/captcha/0.0.9/captcha/fn.by_name.html" target="_blank">验证码</a></p>
                     <div class="control">
-                        <label class="radio"><input type="radio" name="captcha_difficulty" value="Easy" {% if site_config.captcha_difficulty.as_str() == "Easy" %} checked {% endif %} autocomplete="off" /> Easy</label>
-                        <label class="radio"><input type="radio" name="captcha_difficulty" value="Medium" {% if site_config.captcha_difficulty.as_str() == "Medium" %} checked {% endif %} autocomplete="off" /> Medium</label>
-                        <label class="radio"><input type="radio" name="captcha_difficulty" value="Hard" {% if site_config.captcha_difficulty.as_str() == "Hard" %} checked {% endif %} autocomplete="off" /> Hard</label>
+                        <label class="radio"><input type="radio" name="captcha_difficulty" value="Easy" {% if site_config.captcha_difficulty.as_str() == "Easy" %} checked {% endif %} autocomplete="off" /> 轻轻松松</label>
+                        <label class="radio"><input type="radio" name="captcha_difficulty" value="Medium" {% if site_config.captcha_difficulty.as_str() == "Medium" %} checked {% endif %} autocomplete="off" /> 一般般</label>
+                        <label class="radio"><input type="radio" name="captcha_difficulty" value="Hard" {% if site_config.captcha_difficulty.as_str() == "Hard" %} checked {% endif %} autocomplete="off" /> 很难</label>
                     </div>
                 </div>
             </div>
@@ -178,7 +178,7 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label" for="captcha_name">Captcha type</label>
+                <label class="label" for="captcha_name">验证码类型</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -193,19 +193,19 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label" for="home_page">Default home page</label>
+                <label class="label" for="home_page">默认的主页</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <div class="control">
                         <div class="select">
                             <select name="home_page" required>
-                                <option {% if site_config.home_page ==0 %} selected {% endif %} value="0">Inn/All</option>
-                                <option {% if site_config.home_page ==2 %} selected {% endif %} value="2">Inn/Joined</option>
-                                <option {% if site_config.home_page ==3 %} selected {% endif %} value="3">Inn/Following</option>
-                                <option {% if site_config.home_page ==4 %} selected {% endif %} value="4">Solo/All</option>
-                                <option {% if site_config.home_page ==5 %} selected {% endif %} value="5">Solo/Following</option>
-                                <option {% if site_config.home_page ==6 %} selected {% endif %} value="6">Explore all ⚓ inns</option>
+                                <option {% if site_config.home_page ==0 %} selected {% endif %} value="0">Inn/全部</option>
+                                <option {% if site_config.home_page ==2 %} selected {% endif %} value="2">Inn/加入的</option>
+                                <option {% if site_config.home_page ==3 %} selected {% endif %} value="3">Inn/关注中的</option>
+                                <option {% if site_config.home_page ==4 %} selected {% endif %} value="4">Solo/全部</option>
+                                <option {% if site_config.home_page ==5 %} selected {% endif %} value="5">Solo/关注中的</option>
+                                <option {% if site_config.home_page ==6 %} selected {% endif %} value="6">查看全部 ⚓ inns</option>
                             </select>
                         </div>
                     </div>
@@ -236,7 +236,7 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <button type="submit" form="admin" class="button is-link">Save</button>
+                        <button type="submit" form="admin" class="button is-link">保存</button>
                     </div>
                 </div>
             </div>
