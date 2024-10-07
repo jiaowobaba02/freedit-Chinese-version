@@ -5,7 +5,7 @@
     <fieldset>
         <div class="field is-horizontal has-addons">
             <div class="field-label is-normal">
-                <label class="label">Search</label>
+                <label class="label">搜索</label>
             </div>
             <div class="field-body">
                 <div class="field">
@@ -39,10 +39,10 @@
                     <div class="control">
                         <div class="select">
                             <select name="ctype">
-                                <option {% if ctype == "all" %} selected {% endif %} value="all">All</option>
+                                <option {% if ctype == "all" %} selected {% endif %} value="all">全部</option>
                                 <option {% if ctype == "item" %} selected {% endif %} value="item">Feed</option>
-                                <option {% if ctype == "post" %} selected {% endif %} value="post">Post</option>
-                                <option {% if ctype == "comt" %} selected {% endif %} value="comt">Comment</option>
+                                <option {% if ctype == "post" %} selected {% endif %} value="post">帖子</option>
+                                <option {% if ctype == "comt" %} selected {% endif %} value="comt">评论</option>
                                 <option {% if ctype == "solo" %} selected {% endif %} value="solo">Solo</option>
                             </select>
                         </div>
@@ -56,7 +56,7 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <button type="submit" form="search" class="button is-link">Search</button>
+                        <button type="submit" form="search" class="button is-link">搜索</button>
                     </div>
                 </div>
             </div>
@@ -97,17 +97,17 @@
         <a class="pagination-previous" disabled>Prev</a>
     {% else %}
         {% match uid %} {% when Some(uid) %} 
-        <a class="pagination-previous" href="/search?search={{search}}&uid={{uid}}&ctype={{ctype}}&offset={{offset-20}}">Prev</a>
+        <a class="pagination-previous" href="/search?search={{search}}&uid={{uid}}&ctype={{ctype}}&offset={{offset-20}}">上一页</a>
         {% else %}
-        <a class="pagination-previous" href="/search?search={{search}}&ctype={{ctype}}&offset={{offset-20}}">Prev</a>
+        <a class="pagination-previous" href="/search?search={{search}}&ctype={{ctype}}&offset={{offset-20}}">上一页</a>
         {% endmatch %}
     {% endif %}
 
     {% if outs.len() < 20 %}
-        <a class="pagination-next" disabled>Next</a>
+        <a class="pagination-next" disabled>下一页</a>
     {% else %}
         {% match uid %} {% when Some(uid) %} 
-        <a class="pagination-next" href="/search?search={{search}}&uid={{uid}}&ctype={{ctype}}&offset={{offset+20}}">Next</a>
+        <a class="pagination-next" href="/search?search={{search}}&uid={{uid}}&ctype={{ctype}}&offset={{offset+20}}">下一页</a>
         {% else %}
         <a class="pagination-next" href="/search?search={{search}}&ctype={{ctype}}&offset={{offset+20}}">Next</a>
         {% endmatch %}

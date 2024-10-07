@@ -14,7 +14,7 @@
                     <li><a href="/inn/list">All</a></li>
                     {% if page_data.claim.is_some() %}
                     <li><a href="/inn/list?filter=mod">⚙️ Mod</a></li>
-                    <li><a href="/inn/list?filter=joined">Joined</a></li>
+                    <li><a href="/inn/list?filter=joined">加入的</a></li>
                     {% endif %}
                     <li class="is-active"><a href="/inn/list?topic={{val}}">🏷️ {{val}}</a></li>
                 {% else %}
@@ -23,14 +23,14 @@
                         <li class="is-active"><a href="/inn/list?filter=mod">⚙️ Mod</a></li>
                         <li><a href="/inn/list?filter=joined">Joined</a></li>
                     {% when Some with ("joined") %}
-                        <li><a href="/inn/list">All</a></li>
+                        <li><a href="/inn/list">全部的</a></li>
                         <li><a href="/inn/list?filter=mod">⚙️ Mod</a></li>
-                        <li class="is-active"><a href="/inn/list?filter=joined">Joined</a></li>
+                        <li class="is-active"><a href="/inn/list?filter=joined">加入的</a></li>
                     {% else %}
-                        <li class="is-active"><a href="/inn/list">All</a></li>
+                        <li class="is-active"><a href="/inn/list">全部的</a></li>
                         {% if page_data.claim.is_some() %}
                         <li><a href="/inn/list?filter=mod">⚙️ Mod</a></li>
-                        <li><a href="/inn/list?filter=joined">Joined</a></li>
+                        <li><a href="/inn/list?filter=joined">加入的</a></li>
                         {% endif %}
                     {% endmatch %}
                 {% endmatch %}
@@ -40,7 +40,7 @@
     <div class="level-right">
         {% match page_data.claim %} {% when Some with (val) %}
             {% if val.role >= 100 %}
-            <a href="/mod/0"><button class="button is-success is-small is-rounded">New Inn</button></a>
+            <a href="/mod/0"><button class="button is-success is-small is-rounded">新的Inn</button></a>
             {% endif %}
         {% else %}{% endmatch %}
     </div>
@@ -65,9 +65,9 @@
             {% endfor %}
             
             {% match filter.as_deref() %} {% when Some with ("mod") %}
-                <a href="/mod/{{inn.iid}}"><span class="tag is-success">Edit</span></a>
+                <a href="/mod/{{inn.iid}}"><span class="tag is-success">编辑</span></a>
             {% when Some with ("joined") %}
-                <a href="/inn/{{inn.iid}}/join"><span class="tag is-danger">Exit</span></a>
+                <a href="/inn/{{inn.iid}}/join"><span class="tag is-danger">退出</span></a>
             {% else %}{% endmatch %}
         </div>
     </div>
@@ -76,29 +76,29 @@
 
 <nav class="pagination">
     {% if anchor < n %}
-        <a class="pagination-previous" disabled>Prev</a>
+        <a class="pagination-previous" disabled>上一页</a>
     {% else %}
         {% match filter.as_deref() %} {% when Some with (val) %}
-            <a class="pagination-previous" href="/inn/list?anchor={{anchor - n}}&is_desc={{is_desc}}&filter={{val}}">Prev</a>
+            <a class="pagination-previous" href="/inn/list?anchor={{anchor - n}}&is_desc={{is_desc}}&filter={{val}}">上一页</a>
         {% else %}
             {% match topic.as_deref() %} {% when Some with (val) %}
-            <a class="pagination-previous" href="/inn/list?anchor={{anchor - n}}&is_desc={{is_desc}}&topic={{val}}">Prev</a>
+            <a class="pagination-previous" href="/inn/list?anchor={{anchor - n}}&is_desc={{is_desc}}&topic={{val}}">上一页</a>
             {% else %}
-            <a class="pagination-previous" href="/inn/list?anchor={{anchor - n}}&is_desc={{is_desc}}">Prev</a>
+            <a class="pagination-previous" href="/inn/list?anchor={{anchor - n}}&is_desc={{is_desc}}">上一页</a>
             {% endmatch %}
         {% endmatch %}
     {% endif %}
 
     {% if inns.len() < n %}
-        <a class="pagination-next" disabled >Next</a>
+        <a class="pagination-next" disabled >下一页</a>
     {% else %}
         {% match filter.as_deref() %} {% when Some with (val) %}
-            <a class="pagination-next" href="/inn/list?anchor={{anchor + n}}&is_desc={{is_desc}}&filter={{val}}">Next</a>
+            <a class="pagination-next" href="/inn/list?anchor={{anchor + n}}&is_desc={{is_desc}}&filter={{val}}">下一页</a>
         {% else %}
             {% match topic.as_deref() %} {% when Some with (val) %}
-            <a class="pagination-next" href="/inn/list?anchor={{anchor + n}}&is_desc={{is_desc}}&topic={{val}}">Next</a>
+            <a class="pagination-next" href="/inn/list?anchor={{anchor + n}}&is_desc={{is_desc}}&topic={{val}}">下一页</a>
             {% else %}
-            <a class="pagination-next" href="/inn/list?anchor={{anchor + n}}&is_desc={{is_desc}}">Next</a>
+            <a class="pagination-next" href="/inn/list?anchor={{anchor + n}}&is_desc={{is_desc}}">下一页</a>
             {% endmatch %}
         {% endmatch %}
     {% endif %}

@@ -10,10 +10,10 @@
     <div class="level-left">
         <div class="tabs is-small is-toggle is-toggle-rounded">
             <ul>
-                <li><a href="/inn/0">All</a></li>
+                <li><a href="/inn/0">全部</a></li>
                 {% if page_data.claim.is_some() %}
-                <li><a href="/inn/0?filter=joined">Joined</a></li>
-                <li><a href="/inn/0?filter=following">Following</a></li>
+                <li><a href="/inn/0?filter=joined">加入的</a></li>
+                <li><a href="/inn/0?filter=following">关注中</a></li>
                 {% endif %}
                 <li class="is-active"><a href="/inn/tag/{{tag}}">🏷️ {{tag}}</a></li>
             </ul>
@@ -47,15 +47,15 @@
 
 <nav class="pagination">
     {% if anchor < n %}
-        <a class="pagination-previous" disabled>Prev</a>
+        <a class="pagination-previous" disabled>上一页</a>
     {% else %}
-        <a class="pagination-previous" href="/inn/tag/{{tag}}?anchor={{anchor - n}}&is_desc={{is_desc}}">Prev</a>
+        <a class="pagination-previous" href="/inn/tag/{{tag}}?anchor={{anchor - n}}&is_desc={{is_desc}}">上一页</a>
     {% endif %}
 
     {% if posts.len() < n %}
-        <a class="pagination-next" disabled >Next</a>
+        <a class="pagination-next" disabled >下一页</a>
     {% else %}
-        <a class="pagination-next" href="/inn/tag/{{tag}}?anchor={{anchor + n}}&is_desc={{is_desc}}">Next</a>
+        <a class="pagination-next" href="/inn/tag/{{tag}}?anchor={{anchor + n}}&is_desc={{is_desc}}">下一页</a>
     {% endif %}
 </nav>
 

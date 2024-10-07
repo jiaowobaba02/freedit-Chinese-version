@@ -41,25 +41,25 @@
                         checked
                     {% else %}{% endmatch %}
                     name="is_draft" value="true"/>
-                    Save as draft
+                    保存草稿
                 </div>
 
                 <div class="field">
                     <input type="checkbox" name="delete_draft" value="true"/>
-                    Delete draft
+                    删除草稿
                 </div>
 
                 <nav class="level is-mobile">
                     <div class="level-left">
                         <div class="level-item">
-                            <a href="/upload" class="button is-success is-rounded" target="_blank">upload</a>
+                            <a href="/upload" class="button is-success is-rounded" target="_blank">上传</a>
                         </div>
                     </div>
                     <div class="level-right">
                         <div class="level-item">
                             <div class="field is-grouped">
                                 <div class="control">
-                                    <button type="submit" form="solo" class="button is-link is-rounded">Submit</button>
+                                    <button type="submit" form="solo" class="button is-link is-rounded">提交</button>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
 
 <div class="box">
     <div class="content">
-        <div class="title">Drafts</div>
+        <div class="title">草稿</div>
         {% for draft_title in draft_titles %}
             <p><a href="/post/edit/0?from_draft={{draft_title}}">{{draft_title}}</a></p>
         {% endfor %}

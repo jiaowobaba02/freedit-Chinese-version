@@ -6,16 +6,16 @@
         <div class="tabs is-small is-toggle is-toggle-rounded">
             <ul>
                 {% match filter.as_deref() %} {% when Some with ("followers") %}
-                    <li><a href="/user/list">Users</a></li>
-                    <li class="is-active"><a href="/user/list?filter=followers&id={{info.0}}">followers</a></li>
+                    <li><a href="/user/list">用户</a></li>
+                    <li class="is-active"><a href="/user/list?filter=followers&id={{info.0}}">粉丝</a></li>
                 {% when Some with ("following") %}
-                    <li><a href="/user/list">Users</a></li>
-                    <li class="is-active"><a href="/user/list?filter=following&id={{info.0}}">following</a></li>
+                    <li><a href="/user/list">用户</a></li>
+                    <li class="is-active"><a href="/user/list?filter=following&id={{info.0}}">正在关注</a></li>
                 {% when Some with ("inn") %}
-                    <li><a href="/user/list">Users</a></li>
+                    <li><a href="/user/list">用户</a></li>
                     <li class="is-active"><a href="/user/list?filter=inn&id={{info.0}}">⚓ {{info.1}}</a></li>
                 {% else %}
-                    <li class="is-active"><a href="/user/list">Users</a></li>
+                    <li class="is-active"><a href="/user/list">用户</a></li>
                 {% endmatch %}
             </ul>
         </div>
@@ -40,16 +40,16 @@
             <div class="dropdown-menu">
                 <div class="dropdown-content">
                     {% if info.2 %}
-                    <a href="/user/list?filter=inn&id={{info.0}}&role=1" class="dropdown-item">Pending</a>
-                    <a href="/user/list?filter=inn&id={{info.0}}&role=2" class="dropdown-item">Deny</a>
+                    <a href="/user/list?filter=inn&id={{info.0}}&role=1" class="dropdown-item">待定</a>
+                    <a href="/user/list?filter=inn&id={{info.0}}&role=2" class="dropdown-item">否定</a>
                     {% endif %}
-                    <a href="/user/list?filter=inn&id={{info.0}}&role=3" class="dropdown-item">Limited</a>
+                    <a href="/user/list?filter=inn&id={{info.0}}&role=3" class="dropdown-item">限制中的</a>
                     <a href="/user/list?filter=inn&id={{info.0}}&role=4" class="dropdown-item">Intern</a>
                     <a href="/user/list?filter=inn&id={{info.0}}&role=5" class="dropdown-item">Fellow</a>
                     <a href="/user/list?filter=inn&id={{info.0}}&role=7" class="dropdown-item">Mod</a>
                     <a href="/user/list?filter=inn&id={{info.0}}&role=10" class="dropdown-item">Super</a>
                     <hr class="dropdown-divider">
-                    <a href="/user/list?filter=inn&id={{info.0}}" class="dropdown-item">All</a>
+                    <a href="/user/list?filter=inn&id={{info.0}}" class="dropdown-item">全部</a>
                 </div>
             </div>
         </div>
@@ -58,22 +58,22 @@
             <div class="dropdown-trigger">
                 <button class="button is-small is-rounded">
                     <span>
-                        {% match role %}{% when Some(255) %} Admin
-                        {% when Some(100) %} Senior
-                        {% when Some(10) %} Standard
-                        {% when Some(0) %} Banned
+                        {% match role %}{% when Some(255) %} 管理员
+                        {% when Some(100) %} 高级用户
+                        {% when Some(10) %} 普通用户
+                        {% when Some(0) %} 被封禁的
                         {% else %} Role {% endmatch %}
                     </span>
                 </button>
             </div>
             <div class="dropdown-menu">
                 <div class="dropdown-content">
-                    <a href="/user/list?role=255" class="dropdown-item">Admin</a>
-                    <a href="/user/list?role=100" class="dropdown-item">Senior</a>
-                    <a href="/user/list?role=10" class="dropdown-item">Standard</a>
-                    <a href="/user/list?role=0" class="dropdown-item">Banned</a>
+                    <a href="/user/list?role=255" class="dropdown-item">管理员</a>
+                    <a href="/user/list?role=100" class="dropdown-item">高级用户</a>
+                    <a href="/user/list?role=10" class="dropdown-item">普通用户</a>
+                    <a href="/user/list?role=0" class="dropdown-item">已封禁</a>
                     <hr class="dropdown-divider">
-                    <a href="/user/list" class="dropdown-item">All</a>
+                    <a href="/user/list" class="dropdown-item">全部</a>
                 </div>
             </div>
         </div>
@@ -109,10 +109,10 @@
                             <span class="select is-small">
                                 <select name="role" required autocomplete="off">
                                     {% if info.2 %}
-                                    <option {% if user.role == 1 %} selected {% endif %}>Pending</option>
-                                    <option {% if user.role == 2 %} selected {% endif %}>Deny</option>
+                                    <option {% if user.role == 1 %} selected {% endif %}>待定</option>
+                                    <option {% if user.role == 2 %} selected {% endif %}>否定</option>
                                     {% endif %}
-                                    <option {% if user.role == 3 %} selected {% endif %}>Limited</option>
+                                    <option {% if user.role == 3 %} selected {% endif %}>被限制的</option>
                                     <option {% if user.role == 4 %} selected {% endif %}>Intern</option>
                                     <option {% if user.role == 5 %} selected {% endif %}>Fellow</option>
                                     <option {% if user.role == 7 %} selected {% endif %}>Mod</option>
@@ -121,7 +121,7 @@
                             </span>
                         </p>
                         <div class="control">
-                            <button type="submit" class="button is-success is-small">Save</button>
+                            <button type="submit" class="button is-success is-small">保存</button>
                         </div>
                     </div>
                 </fieldset>
@@ -133,15 +133,15 @@
                         <p class="control">
                             <span class="select is-small">
                                 <select name="role" required autocomplete="off">
-                                    <option {% if user.role == 255 %} selected {% endif %}>Admin</option>
-                                    <option {% if user.role == 100 %} selected {% endif %}>Senior</option>
-                                    <option {% if user.role == 10 %} selected {% endif %}>Standard</option>
-                                    <option {% if user.role == 0 %} selected {% endif %}>Banned</option>
+                                    <option {% if user.role == 255 %} selected {% endif %}>管理员</option>
+                                    <option {% if user.role == 100 %} selected {% endif %}>高级用户</option>
+                                    <option {% if user.role == 10 %} selected {% endif %}>普通用户</option>
+                                    <option {% if user.role == 0 %} selected {% endif %}>被封禁的</option>
                                 </select>
                             </span>
                         </p>
                         <div class="control">
-                            <button type="submit" class="button is-success is-small">Save</button>
+                            <button type="submit" class="button is-success is-small">保存</button>
                         </div>
                     </div>
                 </fieldset>
@@ -159,37 +159,37 @@
 
 <nav class="pagination">
     {% if anchor < n %}
-        <a class="pagination-previous" disabled>Prev</a>
+        <a class="pagination-previous" disabled>上一页</a>
     {% else %}
         {% match role %} {% when Some with (val) %}
             {% match filter %} {% when Some with (filter) %}
-            <a class="pagination-previous" href="/user/list?anchor={{anchor- n}}&is_desc={{is_desc}}&filter={{filter}}&id={{info.0}}&role={{val}}">Prev</a>
+            <a class="pagination-previous" href="/user/list?anchor={{anchor- n}}&is_desc={{is_desc}}&filter={{filter}}&id={{info.0}}&role={{val}}">上一页</a>
             {% else %}
-            <a class="pagination-previous" href="/user/list?anchor={{anchor- n}}&is_desc={{is_desc}}&role={{val}}">Prev</a>
+            <a class="pagination-previous" href="/user/list?anchor={{anchor- n}}&is_desc={{is_desc}}&role={{val}}">上一页</a>
             {% endmatch %}
         {% else %}
             {% match filter %} {% when Some with (filter) %}
-            <a class="pagination-previous" href="/user/list?anchor={{anchor- n}}&is_desc={{is_desc}}&filter={{filter}}&id={{info.0}}">Prev</a>
+            <a class="pagination-previous" href="/user/list?anchor={{anchor- n}}&is_desc={{is_desc}}&filter={{filter}}&id={{info.0}}">上一页</a>
             {% else %}
-            <a class="pagination-previous" href="/user/list?anchor={{anchor- n}}&is_desc={{is_desc}}">Prev</a>
+            <a class="pagination-previous" href="/user/list?anchor={{anchor- n}}&is_desc={{is_desc}}">上一页</a>
             {% endmatch %}
         {% endmatch %}
     {% endif %}
 
     {% if users.len() < n %}
-        <a class="pagination-next" disabled >Next</a>
+        <a class="pagination-next" disabled >下一页</a>
     {% else %}
         {% match role %} {% when Some with (val) %}
             {% match filter %} {% when Some with (filter) %}
-            <a class="pagination-next" href="/user/list?anchor={{anchor + n}}&is_desc={{is_desc}}&filter={{filter}}&id={{info.0}}&role={{val}}">Prev</a>
+            <a class="pagination-next" href="/user/list?anchor={{anchor + n}}&is_desc={{is_desc}}&filter={{filter}}&id={{info.0}}&role={{val}}">上一页</a>
             {% else %}
-            <a class="pagination-next" href="/user/list?anchor={{anchor + n}}&is_desc={{is_desc}}&role={{val}}">Next</a>
+            <a class="pagination-next" href="/user/list?anchor={{anchor + n}}&is_desc={{is_desc}}&role={{val}}">下一页</a>
             {% endmatch %}
         {% else %}
             {% match filter %} {% when Some with (filter) %}
-            <a class="pagination-next" href="/user/list?anchor={{anchor + n}}&is_desc={{is_desc}}&filter={{filter}}&id={{info.0}}">Next</a>
+            <a class="pagination-next" href="/user/list?anchor={{anchor + n}}&is_desc={{is_desc}}&filter={{filter}}&id={{info.0}}">下一页</a>
             {% else %}
-            <a class="pagination-next" href="/user/list?anchor={{anchor + n}}&is_desc={{is_desc}}">Next</a>
+            <a class="pagination-next" href="/user/list?anchor={{anchor + n}}&is_desc={{is_desc}}">下一页</a>
             {% endmatch %}
         {% endmatch %}
     {% endif %}

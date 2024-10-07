@@ -5,12 +5,12 @@
 <div class="box">
     <article class="message is-warning">
         <div class="message-header">
-            <p>Warning</p>
+            <p>警告！</p>
         </div>
         <div class="message-body">
-            You have not set a recovery code. If you lose your password, you will not be able to recover your account.
+            你还没有复原码，忘了密码，你就别想找回你的账号了
             <br>
-            <a href="/user/setting#recovery">Set recovery code</a>
+            <a href="/user/setting#recovery">设置复原密码</a>
         </div>
     </article>
 </div>
@@ -99,7 +99,7 @@
         </div>
         <div class="level-item has-text-centered">
             <div>
-                <p class="heading">Posts</p>
+                <p class="heading">帖子</p>
                 <p class="title">
                     <a href="/inn/0?filter={{user.uid}}">{{user_posts_count}}</a>
                 </p>
@@ -113,13 +113,13 @@
         </div>
         <div class="level-item has-text-centered">
             <div>
-                <p class="heading">Following</p>
+                <p class="heading">关注中</p>
                 <p class="title"><a href="/user/list?filter=following&id={{user.uid}}">{{user_following_count}}</a></p>
             </div>
         </div>
         <div class="level-item has-text-centered">
             <div>
-                <p class="heading">Followers</p>
+                <p class="heading">粉丝</p>
                 <p class="title"><a href="/user/list?filter=followers&id={{user.uid}}">{{user_followers_count}}</a></p>
             </div>
         </div>

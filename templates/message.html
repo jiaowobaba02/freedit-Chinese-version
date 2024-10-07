@@ -11,17 +11,14 @@
     <div class="content">
         {% match pub_key %}
         {% when Some(key) %}
-        <p class="title">Sending e2ee message to <a href="/user/{{receiver_id}}">{{receiver_name}}</a></p>
+        <p class="title">给 <a href="/user/{{receiver_id}}">{{receiver_name}}</a> 发送加密消息</p>
         <article class="message is-info">
             <div class="message-header">
                 <p>Info</p>
             </div>
             <div class="message-body">
-                <p>Your keys and data are kept confidential by running cryptography operations in your browser using
-                    <a href="https://www.w3.org/TR/WebCryptoAPI/" target="Web Crypto API">Web Crypto API</a> and
-                    JavaScript is left unminified so you can verify page source.
-                </p>
-                <p>The code is copied from: <a href="https://github.com/galehouse5/rsa-webcrypto-tool">https://github.com/galehouse5/rsa-webcrypto-tool</a></p>
+                                <p>您的密钥和数据通过在浏览器中使用<a href="https://www.w3.org/TR/WebCryptoAPI/" target="Web Crypto API">Web Crypto API</a> 进行加密操作而保持机密，同时JavaScript未被压缩，以便您可以验证页面源代码。</p>
+                <p>代码来源于：<a href="https://github.com/galehouse5/rsa-webcrypto-tool">https://github.com/galehouse5/rsa-webcrypto-tool</a></p>
             </div>
         </article>
         
@@ -33,7 +30,7 @@
             <fieldset>
                 <div class="field">
                     <div class="is-normal">
-                        <label class="label" for="text-to-encrypt">Message to Encrypt</label>
+                        <label class="label" for="text-to-encrypt">要加密的消息</label>
                     </div>
                     <div class="field-body">
                         <div class="field">
@@ -46,7 +43,7 @@
             </fieldset>
         </div>
 
-        <button id="button" class="button is-link">Encrypt Message</button>
+        <button id="button" class="button is-link">加密消息</button>
         <div class="divider"></div>
         <div id="message"></div>
 
@@ -54,7 +51,7 @@
             <fieldset>
                 <div class="field">
                     <div class="is-normal">
-                        <label class="label" for="encrypted-text">Encrypted Message</label>
+                        <label class="label" for="encrypted-text">加密的消息</label>
                     </div>
                     <div class="field-body">
                         <div class="field">
@@ -70,7 +67,7 @@
                     <div class="field-body">
                         <div class="field">
                             <div class="control">
-                                <button type="submit" form="result" class="button is-link">Send</button>
+                                <button type="submit" form="result" class="button is-link">发送</button>
                             </div>
                         </div>
                     </div>
@@ -79,13 +76,13 @@
         </form>
 
         {% else %}
-        <p class="title">Sending message to <a href="/user/{{receiver_id}}">{{receiver_name}}</a></p>
+        <p class="title">给 <a href="/user/{{receiver_id}}">{{receiver_name}}</a> 发消息</p>
         <article class="message is-warning">
             <div class="message-header">
-                <p>Warning</p>
+                <p>警告！</p>
             </div>
             <div class="message-body">
-                {{receiver_name}} does not have a public key so you can't send an end to end encrypted message. It's safe to transmit the message but site administrators can read it.
+                {{receiver_name}} 没有公钥所以你不能发送加密消息。尽管这个是足够安全的，但是管理员可以看到！
             </div>
         </article>
 
@@ -93,7 +90,7 @@
             <fieldset>
                 <div class="field">
                     <div class="is-normal">
-                        <label class="label" for="encrypted-text">Message</label>
+                        <label class="label" for="encrypted-text">消息</label>
                     </div>
                     <div class="field-body">
                         <div class="field">
@@ -109,7 +106,7 @@
                     <div class="field-body">
                         <div class="field">
                             <div class="control">
-                                <button type="submit" form="result" class="button is-link">Send</button>
+                                <button type="submit" form="result" class="button is-link">发送</button>
                             </div>
                         </div>
                     </div>
@@ -174,7 +171,7 @@
 {% block aside %}
 <div class="box">
     <a href="/key">
-        <span class="tag is-info">Generate key pairs</span>
+        <span class="tag is-info">生成密钥对</span>
     </a>
 </div>
 {% endblock %}

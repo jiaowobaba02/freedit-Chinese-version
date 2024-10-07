@@ -29,9 +29,9 @@
                         <p class="control">
                             <span class="select is-small">
                                 <select name="role" required autocomplete="off">
-                                    <option selected>Pending</option>
-                                    <option>Deny</option>
-                                    <option>Limited</option>
+                                    <option selected>待定</option>
+                                    <option>否认</option>
+                                    <option>限制的</option>
                                     <option>Intern</option>
                                     <option>Fellow</option>
                                     <option>Mod</option>
@@ -40,7 +40,7 @@
                             </span>
                         </p>
                         <div class="control">
-                            <button type="submit" class="button is-success is-small">Save</button>
+                            <button type="submit" class="button is-success is-small">保存</button>
                         </div>
                     </div>
                 </fieldset>
@@ -81,15 +81,15 @@
 
 <nav class="pagination">
     {% if anchor < n %}
-        <a class="pagination-previous" disabled>Prev</a>
+        <a class="pagination-previous" disabled>上一页</a>
     {% else %}
-        <a class="pagination-previous" href="/notification?anchor={{anchor - n}}">Prev</a>
+        <a class="pagination-previous" href="/notification?anchor={{anchor - n}}">上一页</a>
     {% endif %}
 
     {% if notifications.len() < n %}
-        <a class="pagination-next" disabled >Next</a>
+        <a class="pagination-next" disabled >下一页</a>
     {% else %}
-        <a class="pagination-next" href="/notification?anchor={{anchor + n}}">Next</a>
+        <a class="pagination-next" href="/notification?anchor={{anchor + n}}">下一页</a>
     {% endif %}
 </nav>
 {% endblock %}

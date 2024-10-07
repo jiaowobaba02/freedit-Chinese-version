@@ -16,10 +16,10 @@
         <div class="level-left">
             <div class="tabs is-small is-toggle is-toggle-rounded">
                 <ul>
-                    <li><a href="/solo/user/0">All</a></li>
+                    <li><a href="/solo/user/0">全部</a></li>
                     {% match page_data.claim %} {% when Some with (val) %}
-                        <li><a href="/solo/user/0?filter=Following">Following</a></li>
-                        <li><a href="/solo/user/{{val.uid}}?filter=Like">Like</a></li>
+                        <li><a href="/solo/user/0?filter=Following">关注的</a></li>
+                        <li><a href="/solo/user/{{val.uid}}?filter=Like">喜欢</a></li>
                     {% else %}
                     {% endmatch %}
                     <li class="is-active"><a href="/solo/{{solo.sid}}">#{{solo.sid}}</a></li>
@@ -42,7 +42,7 @@
             <div class="content">
                 <p>
                     {% match solo.reply_to %}{% when Some with (val) %}
-                        <small> Replying to <a href="/solo/{{val}}">{{val}}</a></small><br>
+                        <small> 对 <a href="/solo/{{val}}">{{val}}</a> 回复</small><br>
                     {% else %}{% endmatch %}
                     <a href="/solo/user/{{solo.uid}}"> <strong>{{solo.username}}</strong> </a>
                     <small>{{solo.created_at}}</small>
@@ -63,10 +63,10 @@
                     <a class="level-item" href="#delete">🗑️</a>
                     <div id="delete" class="overlay">
                         <div class="popup content">
-                            <h3>Delete permanently?</h3>
+                            <h3>确定删除？</h3>
                             <a class="close" href="#">&times;</a>
-                            <p>Are you sure you want to delete this solo?</p>
-                            <a href="/solo/{{solo.sid}}/delete" class="button is-danger">Delete</a>
+                            <p>真的要删除这个solo?</p>
+                            <a href="/solo/{{solo.sid}}/delete" class="button is-danger">删除</a>
                         </div>
                     </div>
                     {% endif %}
@@ -160,9 +160,9 @@
                         </p>
                         <div class="select is-small">
                             <select name="solo_type" title="Who can see">
-                                <option value="0" selected>Everyone</option>
-                                <option value="10">Following</option>
-                                <option value="20">Just me</option>
+                                <option value="0" selected>每个人</option>
+                                <option value="10">关注中的</option>
+                                <option value="20">只有我</option>
                             </select>
                         </div>
                     </div>
@@ -170,7 +170,7 @@
                     <nav class="level is-mobile">
                         <div class="level-left">
                             <div class="level-item">
-                                <a href="/upload" class="button is-success is-small is-responsive" target="_blank">upload</a>
+                                <a href="/upload" class="button is-success is-small is-responsive" target="_blank">上传</a>
                             </div>
                         </div>
                         <div class="level-right">
@@ -178,8 +178,8 @@
                                 <div class="field is-grouped">
                                     <div class="control">
                                         <div class="buttons">
-                                            <button type="submit" form="solo" class="button is-info is-small is-responsive">Submit</button>
-                                            <button type="submit" class="button is-info is-small is-responsive" formaction="/preview" formtarget="_blank">Preview</button>
+                                            <button type="submit" form="solo" class="button is-info is-small is-responsive">提交</button>
+                                            <button type="submit" class="button is-info is-small is-responsive" formaction="/preview" formtarget="_blank">预览</button>
                                         </div>
                                      </div>
                                 </div>
